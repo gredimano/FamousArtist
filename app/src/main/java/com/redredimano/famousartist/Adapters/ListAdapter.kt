@@ -5,14 +5,15 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.TextView
-import com.redredimano.famousartist.Models.List
+import com.redredimano.famousartist.Models.List as Lists
 import com.redredimano.famousartist.R
 
-class ListAdapter(val context: Context, val lists: ArrayList<List>) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+class ListAdapter(val context: Context, val lists: List<Lists>) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        holder?.bindMessage(context, lists[position])
+        holder?.bindText(lists[position])
     }
 
     override fun getItemCount(): Int {
@@ -25,11 +26,13 @@ class ListAdapter(val context: Context, val lists: ArrayList<List>) : RecyclerVi
     }
 
     inner class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+        val listId = itemView?.findViewById<TextView>(R.id.listId)
         val firstName = itemView?.findViewById<TextView>(R.id.listFirstName)
         val lastName = itemView?.findViewById<TextView>(R.id.listLastName)
         val email = itemView?.findViewById<TextView>(R.id.listEmail)
 
-        fun bindMessage(context: Context, list: List) {
+        fun bindText(list: Lists) {
+            listId?.text = list.id.toString()
             firstName?.text = list.firstName
             lastName?.text = list.lastName
             email?.text = list.email

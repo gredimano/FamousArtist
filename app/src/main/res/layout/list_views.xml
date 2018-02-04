@@ -6,6 +6,16 @@
     android:layout_height="wrap_content">
 
     <TextView
+        android:id="@+id/listId"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/listFirstName"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="ID" />
+
+    <TextView
         android:id="@+id/listFirstName"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
